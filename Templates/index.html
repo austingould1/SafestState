@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>American Driver </title>
+</head>
+<body>
+    <div id="plot"></div>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="../static/js/app.js"></script>
+    <script>var url = "speeding_data";
+
+        Plotly.d3.json(url, function(error, response) {
+            console.log(response);
+    
+            var data = [
+                {
+                  x: response.map(data =>data.state),
+                  y: response.map(data=>data.speeding),
+                  type: 'bar'
+                }
+              ];
+              
+              var layout = {
+  title: 'State Speeding Stastics',
+  
+  yaxis: {
+    title: 'Speeding Percentage',
+    titlefont: {
+      size: 16,
+      color: 'rgb(107, 107, 107)'
+    },
+    tickfont: {
+      size: 14,
+      color: 'rgb(107, 107, 107)'
+    }
+  },
+  legend: {
+    x: 0,
+    y: 1.0,
+    bgcolor: 'rgba(255, 255, 255, 0)',
+    bordercolor: 'rgba(255, 255, 255, 0)'
+  },
+  barmode: 'group',
+  bargap: 0.15,
+  bargroupgap: 0.1
+};
+
+              Plotly.newPlot('plot', data,layout);
+           
+        });</script>
+</body>
+</html>
