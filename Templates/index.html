@@ -1,55 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>American Driver </title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+        
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+            
 </head>
+
 <body>
-    <div id="plot"></div>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="../static/js/app.js"></script>
-    <script>var url = "speeding_data";
-
-        Plotly.d3.json(url, function(error, response) {
-            console.log(response);
-    
-            var data = [
-                {
-                  x: response.map(data =>data.state),
-                  y: response.map(data=>data.speeding),
-                  type: 'bar'
-                }
-              ];
-              
-              var layout = {
-  title: 'State Speeding Stastics',
-  
-  yaxis: {
-    title: 'Speeding Percentage',
-    titlefont: {
-      size: 16,
-      color: 'rgb(107, 107, 107)'
-    },
-    tickfont: {
-      size: 14,
-      color: 'rgb(107, 107, 107)'
-    }
-  },
-  legend: {
-    x: 0,
-    y: 1.0,
-    bgcolor: 'rgba(255, 255, 255, 0)',
-    bordercolor: 'rgba(255, 255, 255, 0)'
-  },
-  barmode: 'group',
-  bargap: 0.15,
-  bargroupgap: 0.1
-};
-
-              Plotly.newPlot('plot', data,layout);
+    <div class="jumbotron jumbotron-fluid">
            
-        });</script>
+        <div  class="animated bounce">
+            <h1 class="display-4 ">American Drivers</h1></div>
+            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+        </div>
+    </div>
+    <div id="plot"></div>
+    <div id="populationscatter"></div>
+
+    <a href="map.html">see map here</a>
+
+
 </body>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+
+    <!--D3 cdn-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+    <script src="http://leafletjs.com/examples/choropleth/us-states.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script type="text/javascript" src="../static/js/app.js"></script>
+
 </html>
