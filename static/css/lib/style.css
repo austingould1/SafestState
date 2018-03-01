@@ -1,0 +1,15 @@
+/* remove default margin and padding from body */
+.body{
+  margin: 0;
+  padding: 0;
+}
+
+.jumbotron{
+  
+  background-repeat: no-repeat;
+  
+  
+}
+/* set map, body, and html to 100% of the screen size */
+
+
