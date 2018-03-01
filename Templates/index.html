@@ -1,82 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>American Driver </title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../static/style.css"> 
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css"> 
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
 </head>
 
 <body>
-
-    <div class="jumbotron" style="background-image: url("http://ksassets.timeincuk.net/wp/uploads/sites/55/2017/04/2473_TP_00167R_UM-920x463.jpg")">  
+    
+    <div class="jumbotron">
       <div class="container">
         <div class="text-center">
-            <br>
-            <h1>Which State Has the Best Driver?</h1>
-            <br><br><br>
-            <p><a class="btn btn-primary btn-lg" href="/leaflet_deaths_miles" role="button">Our Map</a></p>
+            <br><br>
+            <h1 style="color:black;">Which State Has the Best Driver?</h1>    
       </div>
     </div>
     </div>
-    
-    <br>
+
     <br>
 
-    <div id="plot"></div>
+    <div class="container">
+            <div class="row">
+              <div class="col-lg-12">
+            <h3 style="text-align:center;">
+            In this project, we are choosing to both analyze and visualize just how bad/good drivers are in states across the United States drawing upon a variety of traffic related metrics. The questions that we are interested are: Which state has the worst drivers? Which state has best drivers? Which state has the worst wrecks (fatalities)? Which state has the highest citation rate? Which state has the lowest citation rate? Who needs this data? Who would find it useful? How would we sell this? How to make it relatable?
+            </h3>
+           
+        </div>
+        </div>
+    </div>
+    <br><br>
+
+
+
+<div id="plot"></div>
+<h3 style="color:rgba(0,0,0,.87); text-align:center;">
+        Death in Each Sate Per 100 Million Population 
+</h3>
+
+<br><br><br><br><br>
+    <div class="container">
+        <div class="row">
+              <div class="col-lg-6">
+                    <a href="/leaflet_deaths_miles">
+                    <img border="0" alt="car1" src="https://media.wired.com/photos/59096930d8c8646f38eefc43/master/pass/velozes-e-furiosos-mais-3-filmes.jpg" width="480px" height="250px">
+                    <div class="centered">Centered</div>
+                </div>
+              <div class="col-lg-6">
+                    <a href="/leaflet_deaths_miles">
+                    <img border="0" alt="car2" src="http://digitalspyuk.cdnds.net/16/32/768x366/gallery-1470912061-fast-7-vin-diesel-jason-statham-fight.jpg" width="480px" height="250px">
+                    <div class="centered">Centered</div>
+                </div>
+        </div>
+    </div>
+
+    
 
    
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="../static/js/app.js"></script>
-    <script>var url = "speeding_data";
+    <script src="/static/js/app.js"></script>
+    <script>
+        var url = "speeding_data";
 
-        Plotly.d3.json(url, function(error, response) {
-            console.log(response);
-    
-            var data = [
-                {
-                  x: response.map(data =>data.state),
-                  y: response.map(data=>data.speeding),
-                  type: 'bar'
-                }
-              ];
-              
-              var layout = {
-  title: 'State Speeding Stastics',
-  
-  yaxis: {
-    title: 'Speeding Percentage',
-    titlefont: {
-      size: 16,
-      color: 'rgb(107, 107, 107)'
-    },
-    tickfont: {
-      size: 14,
-      color: 'rgb(107, 107, 107)'
-    }
-  },
-  legend: {
-    x: 0,
-    y: 1.0,
-    bgcolor: 'rgba(255, 255, 255, 0)',
-    bordercolor: 'rgba(255, 255, 255, 0)'
-  },
-  barmode: 'group',
-  bargap: 0.15,
-  bargroupgap: 0.1
-};
-
-              Plotly.newPlot('plot', data,layout);
+        Plotly.newPlot('plot', data,layout);
            
-        });
     </script>
-
+    <div id="populationscatter"></div>
 </body>
 </html>
+
+
