@@ -17,3 +17,4 @@ var url = "fancy_pie_chart";
       
     Plotly.newPlot('piechart', data, layout);
     });
+
