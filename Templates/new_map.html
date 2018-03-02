@@ -1,36 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>American Driver </title>
-   <!-- Leaflet JS & CSS -->
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
-   <script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+</head>
+<body>
+ 
+<script src="https://d3js.org/d3.v4.min.js"></script>
 
-   <!-- d3 JS -->
-   <script src="https://d3js.org/d3.v4.min.js"></script>
+  
+<!-- Leaflet JS & CSS -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+<link rel="stylesheet" href="./static/css/style.css" />
+<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
 
-   <!-- Marker Cluster JS & CSS -->
-   <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
-   <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
-   <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+<!-- d3 JS -->
+<script src="https://d3js.org/d3.v4.min.js"></script>
+
+<!-- Marker Cluster JS & CSS -->
+<script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
+<link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
 
 <body>
-    <div class="jumbotron jumbotron-fluid">
-           
-        <div  class="animated bounce">
-            <h1 class="display-4 ">American Drivers</h1></div>
-            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-        </div>
-    </div>
-    <div id="plot"></div>
-    <div id="populationscatter"></div>
-    <div id = "mapid"></div>
-    <a href="map.html">see map here</a>
-
+  <div id="mapid"></div>
 
 </body>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"

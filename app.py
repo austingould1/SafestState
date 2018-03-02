@@ -19,6 +19,8 @@ session = Session(engine)
 
 app = Flask(__name__)
 
+accidents_df = pd.read_csv("./cleaned_accidents_data.csv")
+
 @app.route("/")
 def home():
     return render_template("index.html")
@@ -56,6 +58,14 @@ def death_miles():
 @app.route("/map.html")
 def map_html():
     return render_template("map.html")
+
+@app.route("/accidents_map")
+def accidents_map():
+    return jsonify(accidents_df.to_dict(orient = "records"))
+
+@app.route("/new_map.html")
+def new_map():
+    return render_template("new_map.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
