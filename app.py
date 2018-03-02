@@ -55,6 +55,19 @@ def death_miles():
     result_deaths = addGeoJson(deaths_miles)
     return jsonify(result_deaths)
 
+@app.route("/deaths_ranking")
+def death_rankings():
+   # Return the speeding result per state
+   death_result = session.query(merged_drivers_data.state,merged_drivers_data.deaths_per_hunderd_thousand,merged_drivers_data.population
+).all()
+   death_df = pd.DataFrame(death_result, columns=['state', 'deaths','popoulation'])
+   death_df.sort_values("deaths",axis = 0,ascending=False,inplace=True)
+   death_df.drop(death_df[death_df['state'] == "District of Columbia"].index, inplace=True)
+   death_df = death_df.iloc[:5,:2]
+   death_df["ranking"] = [1,2,3,4,5]
+   death_df = death_df[['ranking','state','deaths']]
+   return jsonify(death_df.to_dict(orient="records"))
+
 @app.route("/map.html")
 def map_html():
     return render_template("map.html")
