@@ -120,4 +120,4 @@ def fancy():
         return jsonify(final_pie_df.to_dict(orient="records"))    
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
