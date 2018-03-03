@@ -7,6 +7,8 @@ from sqlalchemy import create_engine, desc
 import pandas as pd
 import json
 from customfunctions import addGeoJson, region
+from sqlalchemy.sql import func
+import operator
 
 engine = create_engine("sqlite:///Merged_Drivers_Data.sqlite")
 
@@ -79,6 +81,43 @@ def accidents_map():
 @app.route("/new_map.html")
 def new_map():
     return render_template("new_map.html")
+
+#PH Analysis for Pie Chart: % of Total Fatalities owned by each State
+@app.route("/fancy_pie_chart")
+def fancy():
+
+     
+
+        total_fatalities = session.query(func.sum(merged_drivers_data.fatal_crashes)).all()
+        print(total_fatalities)
+
+        query_results = session.query(merged_drivers_data)
+
+        state_list=[]
+        percentage_of_fatalities_owned_per_state=[]
+        for state in query_results:
+            state_list.append(state.state)
+            percentage_of_fatalities_owned_per_state.append(round(((state.fatal_crashes/34439)*100),2))
+            print(state_list)
+            print(percentage_of_fatalities_owned_per_state)
+
+        keys = state_list
+        values = percentage_of_fatalities_owned_per_state
+        pie_chart_dict = dict(zip(keys, values))
+        print(pie_chart_dict)
+
+        sorted_dict = sorted(pie_chart_dict.items(), key=operator.itemgetter(1), reverse=True)
+        print(sorted_dict)
+
+        sorted_df = pd.DataFrame(sorted_dict, columns=['state', 'percentages'])
+
+        new_df_with_other = sorted_df.append({'state': 'Other', 'percentages' : 57.58}, ignore_index=True)
+
+        df_pie_groupings = new_df_with_other.sort_values('percentages', ascending=False)
+
+        final_pie_df = df_pie_groupings[df_pie_groupings['percentages'] > 3]
+
+        return jsonify(final_pie_df.to_dict(orient="records"))    
 
 if __name__ == '__main__':
     app.run(debug=True)

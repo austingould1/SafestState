@@ -29,13 +29,12 @@ Plotly.d3.json(url, function (error, response) {
 
 
 function getColor(d) {
-    return 
-        d > 23.1 ?  '#a50f15'  :
+    return         d > 23.1 ?  '#a50f15'  :
         d > 15.32 ? '#de2d26' :
         d > 12.25 ? '#fb6a4a' :
         d > 9.225 ? '#fcae91' :
         '#fee5d9';
-}
+ }
 
 function style(feature) {
     return {
@@ -93,7 +92,7 @@ info.onAdd = function (map) {
 
 // method that we will use to update the control based on feature properties passed
 info.update = function (props) {
-    this._div.innerHTML = '<h4>Death Per Million Miles Traveled</h4>' +  (props ?
+    this._div.innerHTML = '<h4>Death Per Population (10,000)</h4>' +  (props ?
         '<b>' + props.name + '</b><br />' + props.deaths + ' death / Population (10,000) '
         : 'Hover over a state');
 };

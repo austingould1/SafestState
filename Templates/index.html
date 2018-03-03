@@ -17,32 +17,63 @@
    <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
    <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+   crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+   crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+   crossorigin="anonymous"></script>
+   <link rel="stylesheet" type="text/css" href="/static/css/style.css"> 
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<!--D3 cdn-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
+    <script src="http://leafletjs.com/examples/choropleth/us-states.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+<!--bootstrap-->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+
+<script src= "https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
+<script type="text/javascript" src="https://cdn.datatables.net/autofill/2.2.2/js/dataTables.autoFill.min.js"></script>
 
 <body>
+
     <div class="jumbotron">
       <div class="container">
         <div class="text-center">
-            <br><br>
-            <h1 style="color:black;">Which State Has the Best Driver?</h1>    
+            
+            <h1 style="color:whitesmoke;">Which State Has the Best Driver?</h1>    
       </div>
     </div>
     </div>
     
+
     <br>
 
     <div class="container">
             <div class="row">
               <div class="col-lg-12">
             <h3 style="text-align:center;">
-            In this project, we are choosing to both analyze and visualize just how bad/good drivers are in states across the United States drawing upon a variety of traffic related metrics. The questions that we are interested are: Which state has the worst drivers? Which state has best drivers? Which state has the worst wrecks (fatalities)? Which state has the highest citation rate? Which state has the lowest citation rate? Who needs this data? Who would find it useful? How would we sell this? How to make it relatable?
-            </h3>
+            In this project, we are choosing to both analyze and visualize just how bad/good drivers are in states across the United States drawing upon a variety of traffic related metrics. The questions that we are interested are: Which state has the worst drivers? Which state has best drivers? Which state has the worst wrecks (fatalities)? 
            
         </div>
         </div>
     </div>
     <br><br>
-
-
 
 <div id="plot"></div>
 <h3 style="color:rgba(0,0,0,.87); text-align:center;">
@@ -50,41 +81,570 @@
 </h3>
 
 <br><br><br><br><br>
-    <div class="container">
-        <div class="row">
-              <div class="col-lg-6">
-                    <a href="/leaflet_deaths_miles">
-                    <img border="0" alt="car1" src="https://media.wired.com/photos/59096930d8c8646f38eefc43/master/pass/velozes-e-furiosos-mais-3-filmes.jpg" width="480px" height="250px">
-                    <div class="centered">Centered</div>
-                </div>
-              <div class="col-lg-6">
-                    <a href="/leaflet_deaths_miles">
-                    <img border="0" alt="car2" src="http://digitalspyuk.cdnds.net/16/32/768x366/gallery-1470912061-fast-7-vin-diesel-jason-statham-fight.jpg" width="480px" height="250px">
-                    <div class="centered">Centered</div>
-                </div>
-        </div>
+<div class="container">
+    <div class="row">
+            <div class="col-lg-6">
+                    <a href="new_map.html">
+                    <img border="0" alt="car1" src="http://www.caritaslawgroup.com/wp-content/uploads/2016/08/iStock_57764262_SMALL-e1470808684130.jpg" width="500px" height="300px">
+                    <div class="centered">Check Accidents Rate for Each State</div></a>
+            </div>
+            <div class="col-lg-6">
+                    <a href="map.html">
+                    <img border="0" alt="car2" src="http://www.caritaslawgroup.com/wp-content/uploads/2016/08/iStock_57764262_SMALL-e1470808684130.jpg" width="500px" height="300px">
+                    <div class="centered">Check Each State Has the Best Driver</div></a>
+            </div>
     </div>
+</div>
 
-    </div>
-    <div id="plot"></div>
-    <div id="populationscatter"></div>
-    <div id = "mapid"></div>
-    <a href="map.html">see map here</a>
+<br><br><div>
+    <h3 style="color:rgba(0,0,0,.87); text-align:center;">
+        Death VS Population Chart
+    </h3>
+    
+<div id="scatter"></div>
 
+    <div id="piechart"></div>
+<table id="example" class="display" cellspacing="0" width="100%">
+	
+	    <thead>
+            <tr>
+                <th>State</th>
+                <th>Fatalities Rate per 100 Million Vehicle Miles Traveled</th>
+                <th>Failure to Obey (Traffic Safety Device, Seat Belt, &amp; Invalid Driver License)</th>
+                <th>Careless Driving</th>
+                <th>Drunk Driving</th>
+                <th>Speeding</th>
+				    <th>Total Score</th>
+					<th>2017 Ranking</th>
+            </tr>
+        </thead>
+<tbody>
+<tr>
+<td>Montana</td>
+<td>50</td>
+<td>51</td>
+<td>23</td>
+<td>48</td>
+<td>46</td>
+<td>218</td>
+<td>51</td>
+</tr>
+<tr>
+<td>Louisiana</td>
+<td>45</td>
+<td>50</td>
+<td>48</td>
+<td>41</td>
+<td>14</td>
+<td>198</td>
+<td>49</td>
+</tr>
+<tr>
+<td>Rhode Island</td>
+<td>2</td>
+<td>48</td>
+<td>3</td>
+<td>51</td>
+<td>49</td>
+<td>153</td>
+<td>38</td>
+</tr>
+<tr>
+<td>Kentucky</td>
+<td>48</td>
+<td>48</td>
+<td>27</td>
+<td>6</td>
+<td>7</td>
+<td>136</td>
+<td>31</td>
+</tr>
+<tr>
+<td>Colorado</td>
+<td>22</td>
+<td>46</td>
+<td>17</td>
+<td>21</td>
+<td>44</td>
+<td>150</td>
+<td>37</td>
+</tr>
+<tr>
+<td>Nevada</td>
+<td>32</td>
+<td>46</td>
+<td>45</td>
+<td>33</td>
+<td>36</td>
+<td>192</td>
+<td>47</td>
+</tr>
+<tr>
+<td>Arizona</td>
+<td>42</td>
+<td>45</td>
+<td>46</td>
+<td>36</td>
+<td>37</td>
+<td>206</td>
+<td>50</td>
+</tr>
+<tr>
+<td>Wisconsin</td>
+<td>11</td>
+<td>44</td>
+<td>15</td>
+<td>38</td>
+<td>28</td>
+<td>136</td>
+<td>31</td>
+</tr>
+<tr>
+<td>Oklahoma</td>
+<td>39</td>
+<td>43</td>
+<td>35</td>
+<td>11</td>
+<td>21</td>
+<td>149</td>
+<td>35</td>
+</tr>
+<tr>
+<td>Mississippi</td>
+<td>49</td>
+<td>42</td>
+<td>44</td>
+<td>18</td>
+<td>3</td>
+<td>156</td>
+<td>39</td>
+</tr>
+<tr>
+<td>Indiana</td>
+<td>21</td>
+<td>40</td>
+<td>25</td>
+<td>3</td>
+<td>27</td>
+<td>116</td>
+<td>20</td>
+</tr>
+<tr>
+<td>Delaware</td>
+<td>35</td>
+<td>40</td>
+<td>51</td>
+<td>19</td>
+<td>22</td>
+<td>167</td>
+<td>44</td>
+</tr>
+<tr>
+<td>Idaho</td>
+<td>37</td>
+<td>39</td>
+<td>1</td>
+<td>31</td>
+<td>13</td>
+<td>121</td>
+<td>22</td>
+</tr>
+<tr>
+<td>Alabama</td>
+<td>34</td>
+<td>38</td>
+<td>42</td>
+<td>19</td>
+<td>26</td>
+<td>159</td>
+<td>41</td>
+</tr>
+<tr>
+<td>Missouri</td>
+<td>27</td>
+<td>37</td>
+<td>32</td>
+<td>7</td>
+<td>38</td>
+<td>141</td>
+<td>33</td>
+</tr>
+<tr>
+<td>Tennessee</td>
+<td>32</td>
+<td>36</td>
+<td>30</td>
+<td>16</td>
+<td>10</td>
+<td>124</td>
+<td>24</td>
+</tr>
+<tr>
+<td>California</td>
+<td>15</td>
+<td>35</td>
+<td>43</td>
+<td>27</td>
+<td>29</td>
+<td>149</td>
+<td>35</td>
+</tr>
+<tr>
+<td>Texas</td>
+<td>41</td>
+<td>34</td>
+<td>41</td>
+<td>47</td>
+<td>32</td>
+<td>195</td>
+<td>48</td>
+</tr>
+<tr>
+<td>North Dakota</td>
+<td>38</td>
+<td>33</td>
+<td>9</td>
+<td>50</td>
+<td>34</td>
+<td>164</td>
+<td>42</td>
+</tr>
+<tr>
+<td>Kansas</td>
+<td>25</td>
+<td>32</td>
+<td>7</td>
+<td>2</td>
+<td>39</td>
+<td>105</td>
+<td>16</td>
+</tr>
+<tr>
+<td>North Carolina</td>
+<td>30</td>
+<td>30</td>
+<td>37</td>
+<td>24</td>
+<td>45</td>
+<td>166</td>
+<td>43</td>
+</tr>
+<tr>
+<td>Arkansas</td>
+<td>47</td>
+<td>30</td>
+<td>24</td>
+<td>22</td>
+<td>6</td>
+<td>129</td>
+<td>26</td>
+</tr>
+<tr>
+<td>South Dakota</td>
+<td>44</td>
+<td>28</td>
+<td>2</td>
+<td>12</td>
+<td>16</td>
+<td>102</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Utah</td>
+<td>14</td>
+<td>28</td>
+<td>28</td>
+<td>1</td>
+<td>12</td>
+<td>83</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Florida</td>
+<td>43</td>
+<td>27</td>
+<td>50</td>
+<td>12</td>
+<td>1</td>
+<td>133</td>
+<td>27</td>
+</tr>
+<tr>
+<td>New Mexico</td>
+<td>24</td>
+<td>25</td>
+<td>49</td>
+<td>24</td>
+<td>48</td>
+<td>170</td>
+<td>45</td>
+</tr>
+<tr>
+<td>South Carolina</td>
+<td>51</td>
+<td>25</td>
+<td>47</td>
+<td>23</td>
+<td>41</td>
+<td>187</td>
+<td>46</td>
+</tr>
+<tr>
+<td>Connecticut</td>
+<td>7</td>
+<td>24</td>
+<td>18</td>
+<td>44</td>
+<td>24</td>
+<td>117</td>
+<td>21</td>
+</tr>
+<tr>
+<td>Maine</td>
+<td>23</td>
+<td>22</td>
+<td>21</td>
+<td>49</td>
+<td>43</td>
+<td>158</td>
+<td>40</td>
+</tr>
+<tr>
+<td>Wyoming</td>
+<td>45</td>
+<td>22</td>
+<td>5</td>
+<td>30</td>
+<td>33</td>
+<td>135</td>
+<td>29</td>
+</tr>
+<tr>
+<td>Nebraska</td>
+<td>29</td>
+<td>21</td>
+<td>13</td>
+<td>34</td>
+<td>4</td>
+<td>101</td>
+<td>13</td>
+</tr>
+<tr>
+<td>Illinois</td>
+<td>15</td>
+<td>18</td>
+<td>19</td>
+<td>39</td>
+<td>42</td>
+<td>133</td>
+<td>27</td>
+</tr>
+<tr>
+<td>Georgia</td>
+<td>27</td>
+<td>18</td>
+<td>40</td>
+<td>5</td>
+<td>9</td>
+<td>99</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Ohio</td>
+<td>19</td>
+<td>18</td>
+<td>13</td>
+<td>12</td>
+<td>8</td>
+<td>70</td>
+<td>4</td>
+</tr>
+<tr>
+<td>West Virginia</td>
+<td>39</td>
+<td>17</td>
+<td>10</td>
+<td>9</td>
+<td>18</td>
+<td>93</td>
+<td>9</td>
+</tr>
+<tr>
+<td>Pennsylvania</td>
+<td>26</td>
+<td>15</td>
+<td>16</td>
+<td>15</td>
+<td>50</td>
+<td>122</td>
+<td>23</td>
+</tr>
+<tr>
+<td>New York</td>
+<td>9</td>
+<td>15</td>
+<td>30</td>
+<td>29</td>
+<td>31</td>
+<td>114</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Washington</td>
+<td>15</td>
+<td>13</td>
+<td>20</td>
+<td>28</td>
+<td>25</td>
+<td>101</td>
+<td>13</td>
+</tr>
+<tr>
+<td>Virginia</td>
+<td>11</td>
+<td>13</td>
+<td>11</td>
+<td>32</td>
+<td>2</td>
+<td>69</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Hawaii</td>
+<td>11</td>
+<td>12</td>
+<td>33</td>
+<td>45</td>
+<td>47</td>
+<td>148</td>
+<td>34</td>
+</tr>
+<tr>
+<td>Minnesota</td>
+<td>4</td>
+<td>11</td>
+<td>6</td>
+<td>36</td>
+<td>11</td>
+<td>68</td>
+<td>2</td>
+</tr>
+<tr>
+<td>New Hampshire</td>
+<td>8</td>
+<td>8</td>
+<td>4</td>
+<td>40</td>
+<td>51</td>
+<td>111</td>
+<td>17</td>
+</tr>
+<tr>
+<td>Alaska</td>
+<td>36</td>
+<td>8</td>
+<td>25</td>
+<td>24</td>
+<td>35</td>
+<td>128</td>
+<td>25</td>
+</tr>
+<tr>
+<td>District of Columbia</td>
+<td>3</td>
+<td>8</td>
+<td>38</td>
+<td>35</td>
+<td>30</td>
+<td>114</td>
+<td>18</td>
+</tr>
+<tr>
+<td>Massachusetts</td>
+<td>1</td>
+<td>7</td>
+<td>12</td>
+<td>41</td>
+<td>19</td>
+<td>80</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Vermont</td>
+<td>6</td>
+<td>6</td>
+<td>22</td>
+<td>4</td>
+<td>40</td>
+<td>78</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Oregon</td>
+<td>31</td>
+<td>5</td>
+<td>34</td>
+<td>45</td>
+<td>20</td>
+<td>135</td>
+<td>29</td>
+</tr>
+<tr>
+<td>New Jersey</td>
+<td>5</td>
+<td>3</td>
+<td>39</td>
+<td>8</td>
+<td>15</td>
+<td>70</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Iowa</td>
+<td>18</td>
+<td>3</td>
+<td>8</td>
+<td>10</td>
+<td>5</td>
+<td>44</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Michigan</td>
+<td>19</td>
+<td>2</td>
+<td>36</td>
+<td>16</td>
+<td>23</td>
+<td>96</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Maryland</td>
+<td>10</td>
+<td>1</td>
+<td>29</td>
+<td>41</td>
+<td>17</td>
+<td>98</td>
+<td>11</td>
+</tr>
+</tbody></table>
+
+<script>$(document).ready(function() {
+    $('#example').DataTable();
+} );</script>
+
+<br><br>
+
+    
+
+
+    
+
+    
 
 </body>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-   
-
-    <!--D3 cdn-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.5.0/d3.min.js"></script>
-    <script src="http://leafletjs.com/examples/choropleth/us-states.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script type="text/javascript" src="../static/js/app.js"></script>
-
+    
+<script type="text/javascript" src="/static/js/app.js"></script>
 </html>

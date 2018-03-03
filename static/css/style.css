@@ -17,8 +17,32 @@ body {
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
     border-radius: 5px;
 }
+
 .info h4 {
     margin: 0 0 5px;
     color: #777;
 }
+
+
+.jumbotron{
+  background-image: url("ezgif-5-a106f48bc2.gif");
+  background-size: cover;
+  height: 650px;
+  
+ 
+  
+}
+
+
+
+h3{
+  color:rgba(0,0,0,.87);
+}
+
 #mapid { height: 100%; }
+
+.centered{
+  color:rgba(0,0,0,.87);
+  font-size: 30px;
+
+}

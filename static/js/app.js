@@ -11,6 +11,27 @@ var url = "deaths_per_population";
            }
          ];
          Plotly.newPlot('plot', statesBarData);
+    // pie chart
+var url = "fancy_pie_chart";
+
+         Plotly.d3.json(url, function(error, response) {
+           console.log(response);
+   
+         var data = [{
+           values: response.map(data =>data.percentages),
+           labels: response.map(data=>data.state),
+           type: 'pie'
+         }];   
+   
+         
+           var layout = {
+           height: 700,
+           width: 700
+         };
+         
+         Plotly.newPlot('piechart', data, layout);
+         });
+
      // Scatter Plot  
          var scatterTrace1 = {
            x: response.map(data => data.deaths),
@@ -22,46 +43,19 @@ var url = "deaths_per_population";
          };
          var layout = {
          
-           title:'Death vs Population'
+           title:''
          };
+
          
          var scatterTrace = [scatterTrace1];
          
          
-         Plotly.newPlot('populationscatter',scatterTrace,layout);
+         Plotly.newPlot('scatter',scatterTrace,layout);
      
-     // Regions Bar Plot
-         var RegionsBarData = [
-           
-         ]
+     
 
    });
 
-   var $tbody = document.getElementById("top_dangerous_state");
 
-   
 
-d3.json("/deaths_ranking",function(error,response)
-   {
- 
-
-   for (var i = 0; i < response.length; i++) {
-     // Get get the current address object and its fields
-     var object = response[i];
-     // var fields = Object.keys(object);
-     
-     // Create a new row in the tbody, set the index to be i + startingIndex
-     var $row = $tbody.insertRow(i);
-
-     var columns = ["ranking", "state", "deaths"]
-
-     columns.forEach(
-       function (col) {
-         var $cell = $row.insertCell();
-         $cell.innerText = object[col];
-
-       }
-     )
-   
- }
-} )
+  
